@@ -1,0 +1,152 @@
+{
+    "data":[
+        {
+          "name":"Furniture",
+          "slug":"furniture",
+          "categories":[]
+        },
+        {
+          "name":"Bedding",
+          "slug":"bedding",
+          "categories":[]
+        },
+        {
+            "name":"Kitchen & Dining",
+            "slug":"kitchen-and-dining",
+            "categories":[
+                {
+                    "cat_name":"Dinnerware",
+                    "cat_slug":"dinnerware",
+                    "sub_cats":[
+                        {
+                            "sub_cat_name":"Dinnerware Accessories",
+                            "sub_cat_slug":"dinnerware-accessories"
+                        },
+                        {
+                            "sub_cat_name":"Bowls",
+                            "sub_cat_slug":"bowls"
+                        },
+                        {
+                            "sub_cat_name":"Dinnner Plates",
+                            "sub_cat_slug":"dinnner-plates"
+                        },
+                        {
+                            "sub_cat_name":"Mugs",
+                            "sub_cat_slug":"mugs"
+                        },
+                        {
+                            "sub_cat_name":"Salad Plates",
+                            "sub_cat_slug":"salad-plates"
+                        },
+                        {
+                            "sub_cat_name":"Kitchen",
+                            "sub_cat_slug":"kitchen"
+                        }
+                    ]
+                },
+                {
+                    "cat_name":"Serveware",
+                    "cat_slug":"serveware",
+                    "sub_cats":[
+                        {
+                            "sub_cat_name":"Serving Bowl",
+                            "sub_cat_slug":"serving-bowl"
+                        },
+                        {
+                            "sub_cat_name":"Serving Trays & Platters",
+                            "sub_cat_slug":"serving-trays-and-platters"
+                        },
+                        {
+                            "sub_cat_name":"Cheese Boards & Knives",
+                            "sub_cat_slug":"cheese-boards-and-knives"
+                        },
+                        {
+                            "sub_cat_name":"Drink Dispensers & Pitchers",
+                            "sub_cat_slug":"drink-dispensers-and-pitchers"
+                        },
+                        {
+                            "sub_cat_name":"Serving Utensils",
+                            "sub_cat_slug":"serving-utensils"
+                        },
+                        {
+                            "sub_cat_name":"Cake & Tierred Stand",
+                            "sub_cat_slug":"cake-and-tierred-stand"
+                        }
+                    ]
+                },
+                {
+                    "cat_name":"Table Linens & Accessories",
+                    "cat_slug":"table-linens-and-accessories",
+                    "sub_cats":[
+                        {
+                            "sub_cat_name":"Placemats & Chargers",
+                            "sub_cat_slug":"placemats-and-chargers"
+                        },
+                        {
+                            "sub_cat_name":"Runners & Table Cloths",
+                            "sub_cat_slug":"runners-and-table-cloths"
+                        },
+                        {
+                            "sub_cat_name":"Napkins",
+                            "sub_cat_slug":"napkins"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"Bath",
+            "slug":"bath",
+            "categories":[
+                {
+                    "cat_name":"Bath Linens",
+                    "cat_slug":"bath-linens",
+                    "sub_cats":[
+                        {
+                            "sub_cat_name":"Bath Towels & Mats",
+                            "sub_cat_slug":"bath-towels-and-mats"
+                        },
+                        {
+                            "sub_cat_name":"Hand Towels",
+                            "sub_cat_slug":"hand-towels"
+                        },
+                        {
+                            "sub_cat_name":"Robes & Slippers",
+                            "sub_cat_slug":"robes-and-slippers"
+                        }
+                    ]
+                },
+                {
+                    "cat_name":"Bathroom Accessories",
+                    "cat_slug":"bathroom-accessories",
+                    "sub_cats":[]
+                }
+            ]
+        },
+        {
+          "name":"Cushions & Decor",
+          "slug":"cushions-and-decor",
+          "categories":[]
+        },
+        {
+          "name":"Rugs",
+          "slug":"rugs",
+          "categories":[]
+        },
+        {
+          "name":"Mirrors & Art",
+          "slug":"mirrors-and-art",
+          "categories":[]
+        },
+        {
+          "name":"Lighting",
+          "slug":"lighting",
+          "categories":[]
+        },
+        {
+          "name":"Gifts",
+          "slug":"gifts",
+          "categories":[]
+        }
+    ]
+}
