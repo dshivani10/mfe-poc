@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import {HeaderMFE, NavigationBar, FooterMFE} from 'vue-global-mfe'
+import { HeaderMFE, NavigationBar, FooterMFE } from 'vue-global-mfe'
 import 'vue-global-mfe/dist/style.css'
 import NavData from './db/navigationData.json'
 import { mapState } from 'vuex'
@@ -18,26 +18,13 @@ export default {
     NavigationBar,
     FooterMFE
   },
-  data(){
+  data() {
     return {
-      list:NavData.data,
+      list: NavData.data,
     }
   },
-  computed:{
+  computed: {
     ...mapState(['title'])
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-body{
-  margin: 0;
-}
-</style>

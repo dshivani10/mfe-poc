@@ -4,25 +4,25 @@
       <img class="product-image" :src="product.imageUrl" alt="product image">
     </div>
     <div class="product-details">
-      <h3 class="product-name">{{product.name}}</h3>
+      <h3 class="product-name">{{ product.name }}</h3>
       <h4 class="description-title">DESCRIPTION</h4>
-      <p class="description-content">{{product.description}}</p>
+      <p class="description-content">{{ product.description }}</p>
       <div class="buttons-container">
         <button :disabled="product.wished" @click="wishlistItem(product.id)" class="add-button">
           <span>
             <img v-if="product.wished" class="button-icon" src="../assets/heart-red.png" alt="button-icon">
             <img v-else class="button-icon" src="../assets/heart.png" alt="button-icon">
           </span>
-          <span v-if="product.wished">WISHLISTED</span>
-          <span v-else>WISHLIST</span>
+          <span v-if="product.wished">{{ wishlistConstants.buttonTextDisbaled }}</span>
+          <span v-else>{{ wishlistConstants.buttonTextEnabled }}</span>
         </button>
         <a-tooltip placement="bottom">
-          <template #title>"Add to Cart" service is under maintenance. Sorry for the inconvience.</template>
+          <template #title>{{ cartConstants.tooltip }}</template>
           <button class="add-button">
             <span>
               <img class="button-icon" src="../assets/cart.png" alt="button-icon">
             </span>
-            <span>ADD TO CART</span>
+            <span>{{ cartConstants.buttonTextEnabled }}</span>
           </button>
         </a-tooltip>
       </div>
@@ -32,82 +32,54 @@
 
 <script>
 import { mapActions, mapState } from 'vuex';
-import { HeartOutlined } from '@ant-design/icons-vue';
+import { LikeOutlined, DislikeOutlined } from '@ant-design/icons-vue';
 import { notification } from 'ant-design-vue';
 import { h } from 'vue';
+import AppConstants from '@/config/constants';
 
 export default {
   name: 'ProductPage',
-  computed:{
-    ...mapState(['product'])
+  computed: {
+    ...mapState(['product', 'errorMessage'])
   },
-  mounted(){
-    this.getProductDetails(this.$route.params.id);
+  data() {
+    return {
+      wishlistConstants: AppConstants.WISLIST.addTo,
+      cartConstants: AppConstants.CART.addTo
+    }
   },
-  methods:{
-    ...mapActions(['getProductDetails','addToWishlist']),
-    wishlistItem(val){
+  mounted() {
+    this.getProductDetails(this.$route.params.id).then(() => {
+      if (this.errorMessage.message.length > 0 && this.errorMessage.function === 'getProductDetails') {
+        // we can redirect to error message if needed
+        console.log(this.errorMessage.message);
+      }
+    })
+  },
+  methods: {
+    ...mapActions(['getProductDetails', 'addToWishlist']),
+    wishlistItem(val) {
       this.addToWishlist(val)
-      notification.open({
-        message: ':)',
-        description: 'Product is successfully added to wishlish',
-        style: {
-          marginRight: '140px',
-        },
-        icon: () => h(HeartOutlined, { style: 'color: #a4c0c4' }),
-      });
+      if (this.errorMessage.message.length > 0 && this.errorMessage.function === 'addToWishlist') {
+        notification.open({
+          message: this.wishlistConstants.fail.title,
+          description: this.wishlistConstants.fail.message,
+          style: {
+            marginRight: '140px',
+          },
+          icon: () => h(DislikeOutlined, { style: 'color: red' }),
+        });
+      } else {
+        notification.open({
+          message: this.wishlistConstants.success.title,
+          description: this.wishlistConstants.success.message,
+          style: {
+            marginRight: '140px',
+          },
+          icon: () => h(LikeOutlined, { style: 'color: #a4c0c4' }),
+        });
+      }
     }
   }
 }
 </script>
-
-<style scoped>
-.product-page{
-  min-height: 90vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin: 40px 20px;
-}
-.product-image{
-  width: 500px;
-}
-.product-details{
-  text-align: left;
-  margin-right: 50px;
-}
-.product-name, .description-content{
-  margin: 0;
-}
-.description-title{
-  margin: 50px 0 8px 0;
-}
-.buttons-container{
-  display: flex;
-  justify-content: space-between;
-  margin: 40px 0;
-}
-.add-button{
-  padding: 10px;
-  width: 48%;
-  background-color: #a4c0c4;
-  border: 2px solid transparent;
-  cursor: pointer;
-  font-size: 15px;
-  font-weight: 500;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.add-button:hover:enabled{
-  border: 2px solid #808080;
-}
-.add-button:disabled{
-  color: black;
-  cursor: not-allowed;
-  background-color: rgb(164, 192, 196,0.5);
-}
-.button-icon{
-  height: 30px;
-  margin-right: 20px;
-}
-</style>

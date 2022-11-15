@@ -5,5 +5,6 @@ import store from "./store";
 import Antd from 'ant-design-vue';
 import 'ant-design-vue/dist/antd.css';
 import 'vue-lerna-mfe/build/style.css';
+import '@/config/styles.css';
 
 createApp(App).use(router).use(store).use(Antd).mount('#app')

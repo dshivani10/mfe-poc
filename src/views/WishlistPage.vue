@@ -1,50 +1,48 @@
 <template>
     <div class="wishlist-page">
-        <h1>Your wishlist</h1>
+        <h1>{{ wishlistConstants.title }}</h1>
         <div class="products-grid" v-if="wishedlist.length">
             <div v-for="product in wishedlist" :key="product.id">
                 <ProductsListItem :productItem="product" />
             </div>
         </div>
         <div v-else>
-            <h3>Not yet wishlisted any product. Please add products you like to your wishlish.</h3>
-            <h1>Enjoy Shopping !!</h1>
+            <h3>{{ wishlistConstants.content }}</h3>
+            <h1>{{ wishlistConstants.message }}</h1>
         </div>
     </div>
 </template>
 
 <script>
 import ProductsListItem from '@/components/ProductsListItem.vue';
-import { mapActions } from 'vuex';
+import { mapActions, mapState } from 'vuex';
+import AppConstants from '@/config/constants';
 
-export default{
-    name:'WishlistPage',
-    components:{
+export default {
+    name: 'WishlistPage',
+    components: {
         ProductsListItem,
     },
-    data(){
-        return{
-            wishedlist:[]
+    data() {
+        return {
+            wishedlist: [],
+            wishlistConstants: AppConstants.WISLIST
         }
     },
-    methods:{
+    methods: {
         ...mapActions(['getWishlishProducts'])
     },
-    mounted(){
+    computed: {
+        ...mapState(['errorMessage'])
+    },
+    mounted() {
         this.getWishlishProducts().then((res) => {
+            if (this.errorMessage.message.length > 0 && this.errorMessage.function === 'getWishlishProducts') {
+                // we can redirect to error page if needed
+                console.log(this.errorMessage.message)
+            }
             this.wishedlist = res
         })
     }
 }
 </script>
-
-<style scoped>
-.wishlist-page{
-    margin-top: 40px;
-    min-height: 90vh;
-}
-.products-grid{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-}
-</style>

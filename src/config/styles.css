@@ -1,0 +1,136 @@
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+
+body {
+  margin: 0;
+}
+
+.wishlist-page, 
+.cart-page, 
+.products-list-page {
+    margin-top: 40px;
+    min-height: 90vh;
+}
+
+.products-grid, 
+.products-list-page {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.product-page {
+  min-height: 90vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 40px 20px;
+}
+
+.home-page {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-page-image {
+  width: 100%;
+  margin: 20px;
+  cursor: pointer;
+}
+
+.image-container {
+  width: 70%;
+}
+
+.image-html {
+  position: absolute;
+  margin: 100px 20px;
+  width: 70%;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.white-text {
+  color: white;
+}
+
+.product-image {
+  width: 500px;
+}
+
+.product-details {
+  text-align: left;
+  margin-right: 50px;
+}
+
+.product-name,
+.description-content {
+  margin: 0;
+}
+
+.description-title {
+  margin: 50px 0 8px 0;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 40px 0;
+}
+
+.add-button {
+  padding: 10px;
+  width: 48%;
+  background-color: #a4c0c4;
+  border: 2px solid transparent;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-button:hover:enabled {
+  border: 2px solid #808080;
+}
+
+.add-button:disabled {
+  color: black;
+  cursor: not-allowed;
+  background-color: rgb(164, 192, 196, 0.5);
+}
+
+.button-icon {
+  height: 30px;
+  margin-right: 20px;
+}
+
+.products-list-item {
+    margin: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.products-list-item:hover {
+    border: 2px solid #a4c0c4;
+    border-radius: 10px;
+}
+
+.product-image-list {
+    height: 300px;
+}
+
+.product-tile {
+    text-align: left;
+    font-size: 17px;
+    font-weight: 500;
+    margin: 10px 0;
+}
